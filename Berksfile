@@ -3,5 +3,5 @@ source "https://supermarket.chef.io"
 
 
 #metadata
-cookbook 'pulse', path: "../pulse/"
+cookbook 'zabbix', :git => 'https://github.com/devopsthon/zabbix.git', :ref => 'master'
 cookbook 'apache2'
