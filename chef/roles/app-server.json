@@ -1,0 +1,13 @@
+{
+  "name": "app-server",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "description": "application installation",
+  "run_list": [
+    "recipe[pulse::app-server]"
+  ],
+  "override_attributes": {
+  }
+}

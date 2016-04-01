@@ -1,0 +1,13 @@
+{
+  "name": "db-server",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "description": "database installation",
+  "run_list": [
+    "recipe[pulse::db-server]"
+  ],
+  "override_attributes": {
+  }
+}

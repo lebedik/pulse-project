@@ -1,0 +1,13 @@
+{
+  "name": "zabbix-srv",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "description": "all-in-one zabbix server installation",
+  "run_list": [
+    "recipe[zabbix::server]"
+  ],
+  "override_attributes": {
+  }
+}

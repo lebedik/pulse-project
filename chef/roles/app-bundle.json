@@ -1,0 +1,13 @@
+{
+  "name": "app-bundle",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "description": "all-in-one application installation",
+  "run_list": [
+    "recipe[pulse]"
+  ],
+  "override_attributes": {
+  }
+}

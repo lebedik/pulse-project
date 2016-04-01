@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'https://supermarket.getchef.com/api/v1'
+
+cookbook 'mysql', '~> 6.1.2'
+cookbook 'database', '~> 4.0.9', :git => 'https://github.com/chef-cookbooks/database.git', :ref => 'master'
+cookbook 'mysql2_chef_gem', '~> 1.0.2'
+cookbook 'apache2', '~> 3.1.0', :git => 'https://github.com/svanzoest-cookbooks/apache2.git', :ref => 'master'
+cookbook 'zabbix', :git => 'https://github.com/devopsthon/zabbix.git', :ref => 'master'

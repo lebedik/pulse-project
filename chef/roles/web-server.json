@@ -1,0 +1,13 @@
+{
+  "name": "web-server",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "description": "loadbalancer installation",
+  "run_list": [
+    "recipe[pulse::web-server]"
+  ],
+  "override_attributes": {
+  }
+}

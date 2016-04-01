@@ -1,0 +1,9 @@
+DEPENDENCIES
+  apache2
+  pulse
+    path: ../pulse
+
+GRAPH
+  apache2 (3.1.0)
+  pulse (0.1.3)
+    apache2 (>= 0.0.0)
