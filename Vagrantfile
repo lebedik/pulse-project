@@ -15,6 +15,7 @@ Vagrant.configure(2) do |config|
   config.omnibus.chef_version = '12.8.1'
   config.vm.define 'db' do |db|
     db.vm.box = GLOBAL_BOX
+    db.vm.hostname = "db.epplkraw0175t1.budapest.epam.com"
     db.vm.network "private_network", ip: "192.168.33.112"
      db.vm.provider "virtualbox" do |vb|
        vb.memory = "512"
@@ -32,6 +33,7 @@ Vagrant.configure(2) do |config|
   config.omnibus.chef_version = '12.8.1'
   config.vm.define 'app' do |app|
     app.vm.box = GLOBAL_BOX
+    app.vm.hostname = "app.epplkraw0175t1.budapest.epam.com"
     app.vm.network "private_network", ip: "192.168.33.111"
      app.vm.provider "virtualbox" do |vb|
        vb.memory = "1024"
@@ -39,7 +41,7 @@ Vagrant.configure(2) do |config|
     app.vm.provision "chef_solo" do |chef|
       chef.cookbooks_path = ["chef/cookbooks"]
       chef.roles_path = "chef/roles"
-      chef.add_role("app-server")
+
       chef.json = GLOBAL_CONFIG
     end
   end
@@ -50,6 +52,7 @@ Vagrant.configure(2) do |config|
   config.vm.define 'web' do |web|
     web.vm.box = GLOBAL_BOX
     web.vm.network "private_network", ip: "192.168.33.113"
+    web.vm.hostname = "web.epplkraw0175t1.budapest.epam.com"
      web.vm.provider "virtualbox" do |vb|
        vb.memory = "256"
      end
@@ -67,6 +70,7 @@ Vagrant.configure(2) do |config|
   config.omnibus.chef_version = '12.8.1'
   config.vm.define 'zbx' do |zbx|
     zbx.vm.box = GLOBAL_BOX
+    zbx.vm.hostname = "zbx.epplkraw0175t1.budapest.epam.com"
     zbx.vm.network "private_network", ip: "192.168.33.200"
      zbx.vm.provider "virtualbox" do |vb|
        vb.memory = "256"
