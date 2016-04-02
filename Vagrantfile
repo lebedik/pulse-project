@@ -18,9 +18,9 @@ Vagrant.configure(2) do |config|
      db.vm.provider "virtualbox" do |vb|
        vb.memory = "512"
      end
-    db.berkshelf.enabled = true
     db.vm.provision "chef_solo" do |chef|
-
+      chef.cookbooks_path = ["chef/cookbooks"]
+      chef.roles_path = "chef/roles"
       chef.add_recipe "pulse::db-server"
       chef.json = GLOBAL_CONFIG
     end
@@ -34,9 +34,9 @@ Vagrant.configure(2) do |config|
      app.vm.provider "virtualbox" do |vb|
        vb.memory = "1024"
      end
-    app.berkshelf.enabled = true
     app.vm.provision "chef_solo" do |chef|
-
+      chef.cookbooks_path = ["chef/cookbooks"]
+      chef.roles_path = "chef/roles"
       chef.add_recipe "pulse::app-server"
       chef.json = GLOBAL_CONFIG
     end
@@ -50,9 +50,9 @@ Vagrant.configure(2) do |config|
      web.vm.provider "virtualbox" do |vb|
        vb.memory = "256"
      end
-    web.berkshelf.enabled = true
     web.vm.provision "chef_solo" do |chef|
-
+      chef.cookbooks_path = ["chef/cookbooks"]
+      chef.roles_path = "chef/roles"
       chef.add_recipe "pulse::web-server"
       chef.json = GLOBAL_CONFIG
     end
