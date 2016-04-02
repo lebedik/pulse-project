@@ -58,3 +58,21 @@ Vagrant.configure(2) do |config|
     end
   end
 end
+
+
+Vagrant.configure(2) do |config|
+  config.vm.define 'zbx' do |zbx|
+    zbx.vm.box = GLOBAL_BOX
+    zbx.vm.network "private_network", ip: "192.168.33.200"
+     zbx.vm.provider "virtualbox" do |vb|
+       vb.memory = "256"
+     end
+
+    zbx.vm.provision "chef_solo" do |chef|
+      chef.cookbooks_path = ["chef/cookbooks"]
+      chef.roles_path = "chef/roles"
+      chef.add_role "zabbix-srv"
+      chef.json = GLOBAL_CONFIG
+    end
+  end
+end
