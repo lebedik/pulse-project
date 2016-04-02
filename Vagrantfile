@@ -9,7 +9,52 @@ GLOBAL_CONFIG = {
   },
     'pulse' => {
       'db_host' => '192.168.33.112'
+    },
+
+    "epc-provisioning": {
+    "instances": {
+      "zbx.epplkraw0175t1.budapest.epam.com": {
+        "private_ip_address": "192.168.33.200",
+        "description": "zabbix_srv",
+        "name": "zbx.epplkraw0175t1",
+        "id": "i-f1ad2948",
+        "run_list": [
+          "role[zabbix-srv]"
+        ],
+        "role": "zabbix-srv"
+      },
+      "db.epplkraw0175t1.budapest.epam.com": {
+        "private_ip_address": "192.168.33.112",
+        "description": "db_bundle",
+        "name": "db.epplkraw0175t1",
+        "id": "i-9ce1882c",
+        "run_list": [
+          "role[db-bundle]"
+        ],
+        "role": "db-bundle"
+      },
+       "web.epplkraw0175t1.budapest.epam.com": {
+        "private_ip_address": "192.168.33.113",
+        "description": "WEB_bundle",
+        "name": "web.epplkraw0175t1",
+        "id": "i-9ce1882F",
+        "run_list": [
+          "role[web-bundle]"
+        ],
+        "role": "web-bundle"
+      },
+      "app.epplkraw0175t1.budapest.epam.com": {
+        "private_ip_address": "192.168.33.111",
+        "description": "app_bundle",
+        "name": "app.epplkraw0175t1",
+        "id": "i-9ce1882a",
+        "run_list": [
+          "role[app-bundle]"
+        ],
+        "role": "app-bundle"
+      }
     }
+}
   }
 Vagrant.configure(2) do |config|
   config.omnibus.chef_version = '12.8.1'
