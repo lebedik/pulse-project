@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
     db.vm.provision "chef_solo" do |chef|
       chef.cookbooks_path = ["chef/cookbooks"]
       chef.roles_path = "chef/roles"
-      chef.add_recipe "pulse::db-server"
+      chef.add_role("db-server")
       chef.json = GLOBAL_CONFIG
     end
   end
@@ -39,7 +39,7 @@ Vagrant.configure(2) do |config|
     app.vm.provision "chef_solo" do |chef|
       chef.cookbooks_path = ["chef/cookbooks"]
       chef.roles_path = "chef/roles"
-      chef.add_recipe "pulse::app-server"
+      chef.add_role("app-server")
       chef.json = GLOBAL_CONFIG
     end
   end
@@ -56,7 +56,7 @@ Vagrant.configure(2) do |config|
     web.vm.provision "chef_solo" do |chef|
       chef.cookbooks_path = ["chef/cookbooks"]
       chef.roles_path = "chef/roles"
-      chef.add_recipe "pulse::web-server"
+      chef.add_role("web-server")
       chef.json = GLOBAL_CONFIG
     end
   end
@@ -75,7 +75,7 @@ Vagrant.configure(2) do |config|
     zbx.vm.provision "chef_solo" do |chef|
       chef.cookbooks_path = ["chef/cookbooks"]
       chef.roles_path = "chef/roles"
-      chef.add_role "zabbix-srv"
+      chef.add_role("zabbix-srv")
       chef.json = GLOBAL_CONFIG
     end
   end
