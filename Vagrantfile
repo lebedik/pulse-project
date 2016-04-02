@@ -13,7 +13,7 @@ GLOBAL_CONFIG = {
 
     "epc-provisioning": {
     "instances": {
-      "zbx.epplkraw0175t1.budapest.epam.com": {
+      "zbx.budapest.epam.com": {
         "private_ip_address": "192.168.33.200",
         "description": "zabbix_srv",
         "name": "zbx.epplkraw0175t1",
@@ -23,7 +23,7 @@ GLOBAL_CONFIG = {
         ],
         "role": "zabbix-srv"
       },
-      "db.epplkraw0175t1.budapest.epam.com": {
+      "db.budapest.epam.com": {
         "private_ip_address": "192.168.33.112",
         "description": "db_bundle",
         "name": "db.epplkraw0175t1",
@@ -33,7 +33,7 @@ GLOBAL_CONFIG = {
         ],
         "role": "db-bundle"
       },
-       "web.epplkraw0175t1.budapest.epam.com": {
+       "web.budapest.epam.com": {
         "private_ip_address": "192.168.33.113",
         "description": "WEB_bundle",
         "name": "web.epplkraw0175t1",
@@ -43,7 +43,7 @@ GLOBAL_CONFIG = {
         ],
         "role": "web-bundle"
       },
-      "app.epplkraw0175t1.budapest.epam.com": {
+      "app.budapest.epam.com": {
         "private_ip_address": "192.168.33.111",
         "description": "app_bundle",
         "name": "app.epplkraw0175t1",
@@ -60,7 +60,7 @@ Vagrant.configure(2) do |config|
   config.omnibus.chef_version = '12.8.1'
   config.vm.define 'db' do |db|
     db.vm.box = GLOBAL_BOX
-    db.vm.hostname = "db.epplkraw0175t1.budapest.epam.com"
+    db.vm.hostname = "db.budapest.epam.com"
     db.vm.network "private_network", ip: "192.168.33.112"
      db.vm.provider "virtualbox" do |vb|
        vb.memory = "512"
@@ -78,7 +78,7 @@ Vagrant.configure(2) do |config|
   config.omnibus.chef_version = '12.8.1'
   config.vm.define 'app' do |app|
     app.vm.box = GLOBAL_BOX
-    app.vm.hostname = "app.epplkraw0175t1.budapest.epam.com"
+    app.vm.hostname = "app.budapest.epam.com"
     app.vm.network "private_network", ip: "192.168.33.111"
      app.vm.provider "virtualbox" do |vb|
        vb.memory = "1024"
@@ -97,7 +97,7 @@ Vagrant.configure(2) do |config|
   config.vm.define 'web' do |web|
     web.vm.box = GLOBAL_BOX
     web.vm.network "private_network", ip: "192.168.33.113"
-    web.vm.hostname = "web.epplkraw0175t1.budapest.epam.com"
+    web.vm.hostname = "web.budapest.epam.com"
      web.vm.provider "virtualbox" do |vb|
        vb.memory = "256"
      end
@@ -115,7 +115,7 @@ Vagrant.configure(2) do |config|
   config.omnibus.chef_version = '12.8.1'
   config.vm.define 'zbx' do |zbx|
     zbx.vm.box = GLOBAL_BOX
-    zbx.vm.hostname = "zbx.epplkraw0175t1.budapest.epam.com"
+    zbx.vm.hostname = "zbx.budapest.epam.com"
     zbx.vm.network "private_network", ip: "192.168.33.200"
      zbx.vm.provider "virtualbox" do |vb|
        vb.memory = "256"
