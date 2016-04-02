@@ -8,4 +8,4 @@ cookbook 'database', '~> 4.0.9', :git => 'https://github.com/chef-cookbooks/data
 cookbook 'mysql2_chef_gem', '~> 1.0.2'
 cookbook 'apache2', '~> 3.1.0', :git => 'https://github.com/svanzoest-cookbooks/apache2.git', :ref => 'master'
 cookbook 'zabbix', :git => 'https://github.com/lebedik/zabbix.git', :ref => 'master'
-cookbook 'pulse', :git => 'https://github.com/devopsthon/pulse.git', :ref => 'master'
+cookbook 'pulse', :git => 'https://github.com/lebedik/pulse.git', :ref => 'master'
