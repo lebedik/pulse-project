@@ -6,7 +6,8 @@
   },
   "description": "database installation",
   "run_list": [
-    "recipe[pulse::db-server]"
+    "recipe[pulse::db-server]",
+    "recipe[zabbix::agent]"
   ],
   "override_attributes": {
   }

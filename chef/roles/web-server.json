@@ -6,7 +6,8 @@
   },
   "description": "loadbalancer installation",
   "run_list": [
-    "recipe[pulse::web-server]"
+    "recipe[pulse::web-server]",
+    "recipe[zabbix::agent]"
   ],
   "override_attributes": {
   }
