@@ -41,7 +41,7 @@ Vagrant.configure(2) do |config|
     app.vm.provision "chef_solo" do |chef|
       chef.cookbooks_path = ["chef/cookbooks"]
       chef.roles_path = "chef/roles"
-
+      chef.add_role("app-server")
       chef.json = GLOBAL_CONFIG
     end
   end
