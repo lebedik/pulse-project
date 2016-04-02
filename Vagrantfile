@@ -12,6 +12,7 @@ GLOBAL_CONFIG = {
     }
   }
 Vagrant.configure(2) do |config|
+  config.omnibus.chef_version = '12.8.1'
   config.vm.define 'db' do |db|
     db.vm.box = GLOBAL_BOX
     db.vm.network "private_network", ip: "192.168.33.112"
@@ -28,6 +29,7 @@ Vagrant.configure(2) do |config|
 end
 
 Vagrant.configure(2) do |config|
+  config.omnibus.chef_version = '12.8.1'
   config.vm.define 'app' do |app|
     app.vm.box = GLOBAL_BOX
     app.vm.network "private_network", ip: "192.168.33.111"
@@ -44,6 +46,7 @@ Vagrant.configure(2) do |config|
 end
 
 Vagrant.configure(2) do |config|
+  config.omnibus.chef_version = '12.8.1'
   config.vm.define 'web' do |web|
     web.vm.box = GLOBAL_BOX
     web.vm.network "private_network", ip: "192.168.33.113"
@@ -61,6 +64,7 @@ end
 
 
 Vagrant.configure(2) do |config|
+  config.omnibus.chef_version = '12.8.1'
   config.vm.define 'zbx' do |zbx|
     zbx.vm.box = GLOBAL_BOX
     zbx.vm.network "private_network", ip: "192.168.33.200"
