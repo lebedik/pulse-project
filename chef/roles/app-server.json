@@ -7,7 +7,8 @@
   "description": "application installation",
   "run_list": [
     "recipe[pulse::app-server]",
-    "recipe[zabbix::agent]"
+    "recipe[zabbix::agent]",
+    "recipe[yard-chef]"
   ],
   "override_attributes": {
   }
