@@ -43,6 +43,16 @@ GLOBAL_CONFIG = {
         ],
         "role": "web-bundle"
       },
+      "yard.budapest.epam.com": {
+        "private_ip_address": "192.168.33.114",
+        "description": "yard_bundle",
+        "name": "yard.epplkraw0175t1",
+        "id": "i-9ce1882Y",
+        "run_list": [
+          "role[yard-bundle]"
+        ],
+        "role": "yard-bundle"
+      },
       "app.budapest.epam.com": {
         "private_ip_address": "192.168.33.111",
         "description": "app_bundle",
@@ -110,6 +120,23 @@ Vagrant.configure(2) do |config|
   end
 end
 
+Vagrant.configure(2) do |config|
+  config.omnibus.chef_version = '12.8.1'
+  config.vm.define 'yard' do |yard|
+    yard.vm.box = GLOBAL_BOX
+    yard.vm.network "private_network", ip: "192.168.33.114"
+    yard.vm.hostname = "yard.budapest.epam.com"
+     yard.vm.provider "virtualbox" do |vb|
+       vb.memory = "512"
+     end
+    yard.vm.provision "chef_solo" do |chef|
+      chef.cookbooks_path = ["chef/cookbooks"]
+      chef.roles_path = "chef/roles"
+      chef.add_role("yard-server")
+      chef.json = GLOBAL_CONFIG
+    end
+  end
+end
 
 Vagrant.configure(2) do |config|
   config.omnibus.chef_version = '12.8.1'
@@ -118,7 +145,7 @@ Vagrant.configure(2) do |config|
     zbx.vm.hostname = "zbx.budapest.epam.com"
     zbx.vm.network "private_network", ip: "192.168.33.200"
      zbx.vm.provider "virtualbox" do |vb|
-       vb.memory = "256"
+       vb.memory = "512"
      end
 
     zbx.vm.provision "chef_solo" do |chef|
