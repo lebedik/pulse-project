@@ -1,0 +1,13 @@
+{
+  "name": "yard-server",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "description": "Yard installation",
+  "run_list": [
+    "recipe[yard-chef]"
+  ],
+  "override_attributes": {
+  }
+}
