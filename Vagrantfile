@@ -8,7 +8,8 @@ GLOBAL_CONFIG = {
     "server_repl_password" => "123456",
   },
     'pulse' => {
-      'db_host' => '192.168.33.112'
+      'db_host' => '192.168.33.112', 
+      'jmx_host' => '192.168.33.111'
     },
 
     "epc-provisioning": {
